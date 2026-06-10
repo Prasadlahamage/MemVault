@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MemVault Memories</title>
+</head>
+<body>
+
+<h1>Saved Memories</h1>
+
+{% for memory in memories %}
+
+{% for memory in memories %}
+
+<div style="margin-bottom:20px;">
+
+    <p>{{ memory[1] }}</p>
+
+    <small>{{ memory[2] }}</small>
+
+    <form
+        action="/delete/{{ memory[0] }}"
+        method="POST"
+        style="margin-top:10px;"
+    >
+
+        <button type="submit">
+            Delete
+        </button>
+
+    </form>
+
+</div>
+
+<hr>
+
+{% endfor %}
+
+<hr>
+
+{% endfor %}
+
+</body>
+</html>
