@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Memory</title>
+</head>
+<body>
+
+<h1>Edit Memory</h1>
+
+<form action="/update/{{ memory[0] }}" method="POST">
+
+    <textarea
+        name="memory"
+        rows="10"
+        cols="80"
+    >{{ memory[1] }}</textarea>
+
+    <br><br>
+
+    <button type="submit">
+        Update Memory
+    </button>
+
+</form>
+
+</body>
+</html>

@@ -3,28 +3,107 @@
 
 <head>
     <title>MemVault</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: gray;
+            margin-bottom: 30px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .memory-card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 8px;
+        }
+
+        .timestamp {
+            color: gray;
+            font-size: 12px;
+        }
+
+    </style>
+
 </head>
 
 <body>
 
-    <h1>MemVault</h1>
+<h1>MemVault</h1>
 
-    <form action="/save" method="POST">
+<p class="subtitle">
+    Your Personal AI Memory Vault
+</p>
 
-        <textarea
-            name="memory"
-            rows="10"
-            cols="80"
-            placeholder="What happened today?"
-        ></textarea>
+<form action="/save" method="POST">
 
-        <br><br>
+    <textarea
+        name="memory"
+        rows="6"
+        placeholder="What happened today?"
+    ></textarea>
 
-        <button type="submit">
-            Save Memory
-        </button>
+    <br><br>
 
-    </form>
+    <button type="submit">
+        Save Memory
+    </button>
+
+</form>
+
+<hr>
+
+<h2>Recent Memories</h2>
+
+{% if memories %}
+
+    {% for memory in memories %}
+
+        <div class="memory-card">
+
+            <p>{{ memory[1] }}</p>
+
+            <div class="timestamp">
+                {{ memory[2] }}
+            </div>
+
+        </div>
+
+    {% endfor %}
+
+{% else %}
+
+    <p>No memories saved yet.</p>
+
+{% endif %}
+
+<br>
+
+<a href="/memories">
+    View All Memories
+</a>
 
 </body>
 
