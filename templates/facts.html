@@ -1,0 +1,23 @@
+<h1>Extracted Facts</h1>
+
+<table border="1">
+
+<tr>
+    <th>ID</th>
+    <th>Memory ID</th>
+    <th>Type</th>
+    <th>Value</th>
+</tr>
+
+{% for fact in facts %}
+
+<tr>
+    <td>{{ fact[0] }}</td>
+    <td>{{ fact[1] }}</td>
+    <td>{{ fact[2] }}</td>
+    <td>{{ fact[3] }}</td>
+</tr>
+
+{% endfor %}
+
+</table>
